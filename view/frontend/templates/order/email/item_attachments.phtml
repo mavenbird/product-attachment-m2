@@ -1,0 +1,18 @@
+<?php
+/**
+ * @author Mavenbird Team
+ * @copyright Copyright (c) 2020 Mavenbird (https://www.Mavenbird.com)
+ * @package Mavenbird_ProductAttachment
+ */
+?>
+<?php
+/**
+ * @var \Mavenbird\ProductAttachment\Block\Order\Email\Attachments $block
+ */
+if ($attachments = $block->getAttachments()):
+    ?>
+        <br><b><?= $escaper->escapeHtml($block->getBlockTitle()); ?></b>
+        <?php foreach ($attachments as $attachment): ?>
+            <p><a href="<?= $escaper->escapeUrl($attachment->getFrontendUrl()); ?>" target="_blank"><?= $escaper->escapeHtml($attachment->getLabel()); ?></a></p>
+        <?php endforeach; ?>
+<?php endif; ?>

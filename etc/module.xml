@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Mavenbird Team
+ * @copyright Copyright (c) 2020 Mavenbird (https://www.Mavenbird.com)
+ * @package Mavenbird_ProductAttachment
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Mavenbird_ProductAttachment" setup_version="2.3.5">
+        <sequence>
+            <module name="Magento_Catalog" />
+            <module name="Magento_Downloadable" />
+        </sequence>
+    </module>
+</config>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Mavenbird Team
+ * @copyright Copyright (c) 2020 Mavenbird (https://www.Mavenbird.com)
+ * @package Mavenbird_ProductAttachment
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mavenbird_ProductAttachment::files" title="Product Attachments" module="Mavenbird_ProductAttachment" sortOrder="100" parent="Magento_Catalog::catalog" resource="Mavenbird_ProductAttachment::attachment"/>
+        <add id="Mavenbird_ProductAttachment::files_list" title="Attachments Management" module="Mavenbird_ProductAttachment" sortOrder="10" parent="Mavenbird_ProductAttachment::files" action="file/file/index" resource="Mavenbird_ProductAttachment::attachment"/>
+        <add id="Mavenbird_ProductAttachment::icon" title="Icon Management" module="Mavenbird_ProductAttachment" sortOrder="20" parent="Mavenbird_ProductAttachment::files" action="file/icon/index" resource="Mavenbird_ProductAttachment::icon"/>
+        <add id="Mavenbird_ProductAttachment::import" title="Mass File Import" module="Mavenbird_ProductAttachment" sortOrder="30" parent="Mavenbird_ProductAttachment::files" action="file/import/index" resource="Mavenbird_ProductAttachment::import"/>
+
+        <add id="Mavenbird_ProductAttachment::report" title="Product Attachments" module="Mavenbird_ProductAttachment" sortOrder="110" parent="Magento_Reports::report" resource="Mavenbird_ProductAttachment::reports"/>
+        <add id="Mavenbird_ProductAttachment::downloads" title="Downloads" module="Mavenbird_ProductAttachment" sortOrder="10" parent="Mavenbird_ProductAttachment::report" action="file/report/downloads" resource="Mavenbird_ProductAttachment::downloads"/>
+    </menu>
+</config>

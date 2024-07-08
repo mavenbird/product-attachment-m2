@@ -1,0 +1,35 @@
+<?php
+/**
+ * @author Mavenbird Team
+ * @copyright Copyright (c) 2020 Mavenbird (https://www.Mavenbird.com)
+ * @package Mavenbird_ProductAttachment
+ */
+?>
+<?php
+/** @var \Mavenbird\ProductAttachment\Block\Widgets\AttachmentsList $block */
+?>
+<?php if ($files = $block->getAttachments()): ?>
+    <div class="widget attachments attachments-<?= $escaper->escapeHtml($block->getWidgetType()); ?>">
+        <?php if ($block->getBlockTitle()): ?>
+        <div class="block-title">
+            <strong><?= $escaper->escapeHtml($block->getBlockTitle()); ?></strong>
+        </div>
+        <?php endif; ?>
+
+        <?php foreach ($files as $file): ?>
+            <div class="fileline">
+                <?php if ($block->isShowIcon() && $file->getIconUrl()): ?>
+                <img src="<?= $escaper->escapeUrl($file->getIconUrl()) ?>" class="fileicon" />
+                <?php endif; ?>
+
+                <a href="<?= $escaper->escapeUrl($file->getFrontendUrl()) ?>" class="filelink" target="_blank">
+                    <?= $escaper->escapeHtml($file->getLabel()); ?>
+                </a>
+
+                <?php if ($block->isShowFilesize() && $file->getFileSize()): ?>
+                    <span class="filesize">(<?= $escaper->escapeHtml($file->getReadableFileSize()) ?>)</span>
+                <?php endif ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>

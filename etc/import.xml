@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Mavenbird Team
+ * @copyright Copyright (c) 2020 Mavenbird (https://www.Mavenbird.com)
+ * @package Mavenbird_ProductAttachment
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_ImportExport:etc/import.xsd">
+    <entity name="file_files_import"
+            label="Mavenbird Product Attachment Import"
+            model="Mavenbird\ProductAttachment\Model\Import\ImportProcess"
+            behaviorModel="Mavenbird\ProductAttachment\Model\Import\Source\Behavior\Basic" />
+</config>

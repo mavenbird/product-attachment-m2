@@ -1,0 +1,32 @@
+<?php
+/**
+ * @author Mavenbird Team
+ * @copyright Copyright (c) 2020 Mavenbird (https://www.Mavenbird.com)
+ * @package Mavenbird_ProductAttachment
+ */
+?>
+<?php
+/**
+ * @var \Mavenbird\ProductAttachment\Block\Order\View\Attachments $block
+ */
+if ($attachments = $block->getAttachments()):
+    ?>
+<div class="widget attachments attachments-order-view">
+    <b><?= $escaper->escapeHtml($block->getBlockTitle()); ?></b>
+        <?php foreach ($attachments as $attachment): ?>
+            <div class="fileline">
+                <?php if ($block->isShowIcon() && $attachment->getIconUrl()): ?>
+                    <img src="<?= $escaper->escapeUrl($attachment->getIconUrl()) ?>" class="fileicon" />
+                <?php endif; ?>
+
+                <a href="<?= $escaper->escapeUrl($attachment->getFrontendUrl()) ?>" class="filelink" target="_blank">
+                    <?= $escaper->escapeHtml($attachment->getLabel()); ?>
+                </a>
+
+                <?php if ($block->isShowFilesize() && $attachment->getFileSize()): ?>
+                    <span class="filesize">(<?= $escaper->escapeHtml($attachment->getReadableFileSize()) ?>)</span>
+                <?php endif ?>
+            </div>
+    <?php endforeach; ?>
+</div>
+<?php endif; ?>

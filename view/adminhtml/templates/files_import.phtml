@@ -1,0 +1,48 @@
+<?php
+/**
+ * @author Mavenbird Team
+ * @copyright Copyright (c) 2020 Mavenbird (https://www.Mavenbird.com)
+ * @package Mavenbird_ProductAttachment
+ */
+?>
+<?php
+/**
+ * @var \Mavenbird\ProductAttachment\Block\Adminhtml\Import $block
+ */
+?>
+<script>
+    require([
+            'jquery',
+            'Magento_Ui/js/modal/alert',
+            'prototype'
+        ], function($) {
+            //<![CDATA[
+            var entity = $('#entity');
+            entity.hide();
+            entity.closest('fieldset').find('label.label.admin__field-label').css('visibility','hidden');
+            $(entity).val('file_files_import');
+            varienImport.handleEntityTypeSelector();
+            $('#sample-file-link').attr('href', '<?= $escaper->escapeUrl($block->getGenerateUrl()) ?>');
+            //]]>
+        }
+    );
+</script>
+
+<script>
+    require(['jquery', 'mage/translate'], function ($, $t) {
+        $('#sample-file-link').text($t('Generate Import File'));
+        var Interval = setInterval(function() {
+            if (!$('#edit_form').is(':visible')) {
+                $('.action-next-step').attr('disabled', false);
+                $('.action-next-step').click(function () {
+                    location.href='<?= $escaper->escapeUrl($block->getFinishLink()); ?>';
+                });
+
+                $('.action-next-step').find('span').text($t('Finish'));
+                $('.action-back-step').hide();
+                $('.action-wrap .action-cancel').hide();
+                clearInterval(Interval);
+            }
+        }, 500);
+    })
+</script>

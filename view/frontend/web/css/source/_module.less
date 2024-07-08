@@ -1,0 +1,25 @@
+@file-line__margin-bottom: 5px;
+@file-line__height: 30px;
+
+& when (@media-common = true) {
+    .attachments {
+        .fileline {
+            .lib-css(margin-bottom, @file-line__margin-bottom);
+
+            .fileicon {
+                .lib-css(margin-right, 10px);
+                .lib-css(max-height, @file-line__height);
+                .lib-css(vertical-align, middle);
+            }
+
+            .filelink {
+                .lib-css(line-height, @file-line__height);
+                .lib-css(height, @file-line__height);
+            }
+
+            .filesize {
+                .lib-css(font-size, 90%);
+            }
+        }
+    }
+}
