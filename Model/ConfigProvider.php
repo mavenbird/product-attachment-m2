@@ -1,10 +1,22 @@
 <?php
 /**
- * @author Mavenbird Team
- * @copyright Copyright (c) 2020 Mavenbird (https://www.Mavenbird.com)
- * @package Mavenbird_ProductAttachment
+* Mavenbird Technologies Private Limited
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the EULA
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://mavenbird.com/Mavenbird-Module-License.txt
+*
+* =================================================================
+*
+* @category   Mavenbird
+* @package    Mavenbird_ProductAttechment
+* @author     Mavenbird Team
+* @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+* @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
-
 
 namespace Mavenbird\ProductAttachment\Model;
 
@@ -17,9 +29,6 @@ class ConfigProvider extends \Mavenbird\Core\Model\ConfigProviderAbstract
      */
     protected $pathPrefix = 'file/';
 
-    /**#@+
-     * Constants defined for xpath of system configuration
-     */
     public const XPATH_ENABLED = 'general/enabled';
     public const ADD_CATEGORIES_FILES_TO_PRODUCTS = 'general/add_categories_files';
     public const EXCLUDE_INCLUDE_IN_ORDER_FILES = 'general/exclude_include_in_order_files';
@@ -42,7 +51,6 @@ class ConfigProvider extends \Mavenbird\Core\Model\ConfigProviderAbstract
     public const ORDER_EMAIL_ATTACHMENTS_FILTER = 'order_email/include_attachments_filter';
     public const ORDER_EMAIL_ORDER_STATUS = 'order_email/order_status';
     public const BLOCK_LOCATION = 'block/block_location';
-    /**#@-*/
 
     /**
      * IsEnabled
@@ -113,6 +121,7 @@ class ConfigProvider extends \Mavenbird\Core\Model\ConfigProviderAbstract
     {
         return $this->isSetFlag(self::BLOCK_ENABLED);
     }
+    
     /**
      * GetBlockSortOrder
      *

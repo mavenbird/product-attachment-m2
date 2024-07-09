@@ -1,10 +1,22 @@
 <?php
 /**
- * @author Mavenbird Team
- * @copyright Copyright (c) 2020 Mavenbird (https://www.Mavenbird.com)
- * @package Mavenbird_ProductAttachment
+ * Mavenbird Technologies Private Limited
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
+ *
+ * =================================================================
+ *
+ * @category   Mavenbird
+ * @package    Mavenbird_ProductAttechment
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
-
 
 namespace Mavenbird\ProductAttachment\Setup;
 
@@ -69,6 +81,21 @@ class UpgradeSchema implements UpgradeSchemaInterface
      */
     private $createTriggers;
 
+    /**
+     * Construct
+     *
+     * @param Operation\CreateFileTable $createFileTable
+     * @param Operation\CreateIconTable $createIconTable
+     * @param Operation\CreateIconExtensionTable $createIconExtensionTable
+     * @param Operation\CreateFileScopeTables $createFileScopeTables
+     * @param Operation\CreateReportTable $createReportTable
+     * @param Operation\RenameOldTables $renameOldTables
+     * @param Operation\CreateImportTable $createImportTable
+     * @param Operation\CreateImportFileTable $createImportFileTable
+     * @param Operation\UpgradeSchemaTo230 $upgradeSchemaTo230
+     * @param Operation\UpgradeSchemaTo235 $upgradeSchemaTo235
+     * @param Operation\CreateTriggers $createTriggers
+     */
     public function __construct(
         Operation\CreateFileTable $createFileTable,
         Operation\CreateIconTable $createIconTable,

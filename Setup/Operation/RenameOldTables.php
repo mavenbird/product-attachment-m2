@@ -1,10 +1,22 @@
 <?php
 /**
- * @author Mavenbird Team
- * @copyright Copyright (c) 2020 Mavenbird (https://www.Mavenbird.com)
- * @package Mavenbird_ProductAttachment
+ * Mavenbird Technologies Private Limited
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
+ *
+ * =================================================================
+ *
+ * @category   Mavenbird
+ * @package    Mavenbird_ProductAttechment
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
-
 
 namespace Mavenbird\ProductAttachment\Setup\Operation;
 
@@ -12,13 +24,13 @@ use Magento\Framework\Setup\SchemaSetupInterface;
 
 class RenameOldTables
 {
-    const Mavenbird_FILE_OLD = 'mavenbird_file' . self::PREFIX;
-    const Mavenbird_FILE_ICON_OLD = 'mavenbird_file_icon' . self::PREFIX;
-    const Mavenbird_FILE_STAT_OLD = 'mavenbird_file_stat' . self::PREFIX;
-    const Mavenbird_FILE_STORE_OLD = 'mavenbird_file_store' . self::PREFIX;
-    const Mavenbird_FILE_CUSTOMER_GROUP_OLD = 'mavenbird_file_customer_group' . self::PREFIX;
+    public const Mavenbird_FILE_OLD = 'mavenbird_file' . self::PREFIX;
+    public const Mavenbird_FILE_ICON_OLD = 'mavenbird_file_icon' . self::PREFIX;
+    public const Mavenbird_FILE_STAT_OLD = 'mavenbird_file_stat' . self::PREFIX;
+    public const Mavenbird_FILE_STORE_OLD = 'mavenbird_file_store' . self::PREFIX;
+    public const Mavenbird_FILE_CUSTOMER_GROUP_OLD = 'mavenbird_file_customer_group' . self::PREFIX;
 
-    const OLD_TABLES = [
+    public const OLD_TABLES = [
         'mavenbird_file',
         'mavenbird_file_icon',
         'mavenbird_file_stat',
@@ -26,7 +38,7 @@ class RenameOldTables
         'mavenbird_file_customer_group'
     ];
 
-    const PREFIX = '_old';
+    public const PREFIX = '_old';
 
     /**
      * @param SchemaSetupInterface $setup

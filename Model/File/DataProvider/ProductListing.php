@@ -12,17 +12,18 @@ use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 
 class ProductListing extends \Magento\Catalog\Ui\DataProvider\Product\ProductDataProvider
 {
+
     /**
-     * ProductDataProvider constructor.
+     * Construct
      *
-     * @param string            $name
-     * @param string            $primaryFieldName
-     * @param string            $requestFieldName
+     * @param [type] $name
+     * @param [type] $primaryFieldName
+     * @param [type] $requestFieldName
      * @param CollectionFactory $collectionFactory
-     * @param array             $addFieldStrategies
-     * @param array             $addFilterStrategies
-     * @param array             $meta
-     * @param array             $data
+     * @param array $addFieldStrategies
+     * @param array $addFilterStrategies
+     * @param array $meta
+     * @param array $data
      */
     public function __construct(
         $name,

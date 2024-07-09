@@ -1,10 +1,22 @@
 <?php
 /**
- * @author Mavenbird Team
- * @copyright Copyright (c) 2020 Mavenbird (https://www.Mavenbird.com)
- * @package Mavenbird_ProductAttachment
+* Mavenbird Technologies Private Limited
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the EULA
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://mavenbird.com/Mavenbird-Module-License.txt
+*
+* =================================================================
+*
+* @category   Mavenbird
+* @package    Mavenbird_ProductAttechment
+* @author     Mavenbird Team
+* @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+* @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
-
 
 namespace Mavenbird\ProductAttachment\Setup\Operation;
 
@@ -16,14 +28,10 @@ use Magento\Framework\DB\Adapter\AdapterInterface;
 
 class CreateFileScopeTables
 {
-    /**#@+
-     * Constants defined for tables name
-     */
-    const FILE_STORE_TABLE_NAME = 'Mavenbird_file_store';
-    const FILE_STORE_CATEGORY_TABLE_NAME = 'Mavenbird_file_store_category';
-    const FILE_STORE_PRODUCT_TABLE_NAME = 'Mavenbird_file_store_product';
-    const FILE_STORE_CATEGORY_PRODUCT_TABLE_NAME = 'Mavenbird_file_store_category_product';
-    /**#@-*/
+   public const FILE_STORE_TABLE_NAME = 'Mavenbird_file_store';
+   public const FILE_STORE_CATEGORY_TABLE_NAME = 'Mavenbird_file_store_category';
+   public const FILE_STORE_PRODUCT_TABLE_NAME = 'Mavenbird_file_store_product';
+   public const FILE_STORE_CATEGORY_PRODUCT_TABLE_NAME = 'Mavenbird_file_store_category_product';
 
     /**
      * @param SchemaSetupInterface $setup

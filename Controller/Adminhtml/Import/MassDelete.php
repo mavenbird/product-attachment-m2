@@ -1,10 +1,22 @@
 <?php
 /**
- * @author Mavenbird Team
- * @copyright Copyright (c) 2020 Mavenbird (https://www.Mavenbird.com)
- * @package Mavenbird_ProductAttachment
+ * Mavenbird Technologies Private Limited
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
+ *
+ * =================================================================
+ *
+ * @category   Mavenbird
+ * @package    Mavenbird_ProductAttechment
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
-
 
 namespace Mavenbird\ProductAttachment\Controller\Adminhtml\Import;
 
@@ -36,6 +48,7 @@ class MassDelete extends Import
      * @var LoggerInterface
      */
     private $logger;
+
     /**
      * Construct
      *
@@ -58,6 +71,7 @@ class MassDelete extends Import
         $this->repository = $repository;
         $this->logger = $logger;
     }
+
     /**
      * Execute
      *
@@ -84,6 +98,7 @@ class MassDelete extends Import
         }
         $this->_redirect($this->_redirect->getRefererUrl());
     }
+
     /**
      * GetErrorMessage
      *
@@ -93,6 +108,7 @@ class MassDelete extends Import
     {
         return __('We can\'t change item right now. Please review the log and try again.');
     }
+    
     /**
      * GetSuccessMessage
      *

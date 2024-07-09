@@ -1,18 +1,27 @@
 <?php
 /**
- * @author Mavenbird Team
- * @copyright Copyright (c) 2020 Mavenbird (https://www.Mavenbird.com)
- * @package Mavenbird_ProductAttachment
+ * Mavenbird Technologies Private Limited
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
+ *
+ * =================================================================
+ *
+ * @category   Mavenbird
+ * @package    Mavenbird_ProductAttechment
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
-
 
 namespace Mavenbird\ProductAttachment\Api\Data;
 
 interface IconInterface
 {
-    /**#@+
-     * Constants defined for keys of data array
-     */
     public const ICON_ID = 'icon_id';
 
     public const FILE_TYPE = 'filetype';
@@ -22,7 +31,6 @@ interface IconInterface
     public const IS_ACTIVE = 'is_active';
 
     public const EXTENSION = 'extension';
-    /**#@-*/
 
     /**
      * GetIconId

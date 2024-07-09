@@ -1,10 +1,22 @@
 <?php
 /**
- * @author Mavenbird Team
- * @copyright Copyright (c) 2020 Mavenbird (https://www.Mavenbird.com)
- * @package Mavenbird_ProductAttachment
+ * Mavenbird Technologies Private Limited
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
+ *
+ * =================================================================
+ *
+ * @category   Mavenbird
+ * @package    Mavenbird_ProductAttechment
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
-
 
 namespace Mavenbird\ProductAttachment\Controller\File;
 
@@ -30,30 +42,37 @@ class Download extends Action\Action
      * @var FileScopeDataProvider
      */
     private $fileScopeDataProvider;
+
     /**
      * @var FileRepositoryInterface
      */
     private $fileRepository;
+
     /**
      * @var DownloadHelper
      */
     private $downloadHelper;
+
     /**
      * @var ConfigProvider
      */
     private $configProvider;
+
     /**
      * @var ItemFactory
      */
     private $reportItemFactory;
+
     /**
      * @var Session
      */
     private $customerSession;
+
     /**
      * @var StoreManagerInterface
      */
     private $storeManager;
+
     /**
      * Construct
      *
@@ -85,6 +104,7 @@ class Download extends Action\Action
         $this->customerSession = $customerSession;
         $this->storeManager = $storeManager;
     }
+
     /**
      * ProcessFile
      *
@@ -133,11 +153,10 @@ class Download extends Action\Action
         $this->getResponse()->setHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0');
         $this->getResponse()->clearBody();
         $this->getResponse()->sendHeaders();
-        $this->downloadHelper->output();
-        /** @codingStandardsIgnoreStart */
+        $this->downloadHelper->output();       
         exit(0);
-        /** @codingStandardsIgnoreEnd */
     }
+    
     /**
      * Execute
      *
@@ -181,6 +200,7 @@ class Download extends Action\Action
 
         return $this->resultFactory->create(ResultFactory::TYPE_FORWARD)->forward('noroute');
     }
+    
     /**
      * SaveStat
      *
