@@ -4,26 +4,26 @@ Enhance your Magento 2 store with the ability to attach files to products effort
 
 ## Key Features:
 
--**Attach Files to Products:**
+-*Attach Files to Products:*
 Easily attach files to products, enhancing product information for customers.
--**Downloadable Files:**
+-*Downloadable Files:*
 Provide downloadable files directly on product pages for customer convenience.
--**Batch Processing:**
+-*Batch Processing:*
 Support for batch attachment of files to multiple products simultaneously.
--**Error Handling:**
+-*Error Handling:*
 Detailed error reporting for troubleshooting attachment issues.
--**File Management:**
+-*File Management:*
 Efficiently manage and update attached files as product information changes.
 
 ## Benefits:
 
--**Enhanced Product Information:**
+-*Enhanced Product Information:*
 Provide comprehensive product information with downloadable attachments.
--**Customer Convenience:**
+-*Customer Convenience:*
 Enable customers to access relevant documents directly from product pages.
--**Efficient Management:**
+-*Efficient Management:*
 Streamline attachment management across your product catalog.
--**Flexible Configuration:**
+-*Flexible Configuration:*
 Customize attachment options to suit your store's specific requirements.
 
 ## Compatibility:
