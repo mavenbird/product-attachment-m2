@@ -27,7 +27,6 @@ Streamline attachment management across your product catalog.
 Customize attachment options to suit your store's specific requirements.
 
 ## Compatibility:
-
 This extension is compatible with Magento 2.4.X (PHP - 8.1 - 8.3) version.
 
 ## Installation:
