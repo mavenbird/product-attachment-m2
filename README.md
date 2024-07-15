@@ -64,7 +64,8 @@ Tailor the attachment process to match your store's specific requirements with c
 ![img6](./doc/images/6.png)
 ![img7](./doc/images/7.png)
 
-## Support:*[support@mavenbird.com](mailto:support@mavenbird.com)* 
+## Support:
+*[support@mavenbird.com](mailto:support@mavenbird.com)*
 Dedicated support team available to assist with installation, customization, and any other queries or concerns.
 
 ## Get Started:
