@@ -65,8 +65,9 @@ Tailor the attachment process to match your store's specific requirements with c
 ![img7](./doc/images/7.png)
 
 ## Support:
-*[support@mavenbird.com](mailto:support@mavenbird.com)*
 Dedicated support team available to assist with installation, customization, and any other queries or concerns.
+*[support@mavenbird.com](mailto:support@mavenbird.com)*
+
 
 ## Get Started:
 Enhance your product information with our Magento 2 Product Attachment Extension. Simplify attachment management, improve customer experience, and streamline your workflows today!
