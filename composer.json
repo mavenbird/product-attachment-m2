@@ -2,7 +2,7 @@
   "name": "mavenbird/module-product-attachment",
   "description": "Magento 2 module for attaching files and documents to products.",
   "require": {
-    "php": ">=7.4.0"
+    "php": ">=8.0.0"
   },
   "type": "magento2-module",
   "version": "1.0.0",

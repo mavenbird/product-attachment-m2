@@ -12,7 +12,7 @@
  * =================================================================
  *
  * @category   Mavenbird
- * @package    Mavenbird_ProductAttechment
+ * @package    Mavenbird_ProductAttachment
  * @author     Mavenbird Team
  * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
  * @license    http://mavenbird.com/Mavenbird-Module-License.txt
@@ -42,11 +42,14 @@ class Generate extends Action
     private $fileFactory;
 
     /**
-     * fileSystems
-     *
      * @var Filesystem
      */
     private $fileSystem;
+
+    /**
+     * @var FileDriver
+     */
+    private $fileDriver;
 
     /**
      * Construct
@@ -139,13 +142,14 @@ class Generate extends Action
                         }
                     }
                 }
-                $resource =  $this->fileDriver->fileOpen('php://memory', 'a+');
+                $resource = fopen('php://memory', 'w+');
                 foreach ($result as $row) {
-                    $this->file->filePutCsv($resource, $row);
+                    fputcsv($resource, $row);
                 }
 
-                $this->fileDriver->fseek($resource, 0);
+                rewind($resource);
                 $csvContent = stream_get_contents($resource);
+                fclose($resource);
 
                 $this->fileFactory->create(
                     'file_import_' . $importId . '.csv',
