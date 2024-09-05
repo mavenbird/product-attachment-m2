@@ -13,17 +13,22 @@
  * =================================================================
  *
  * @category   Mavenbird
- * @package    Mavenbird_ProductAttechment
+ * @package    Mavenbird_ProductAttachment
  * @author     Mavenbird Team
  * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
  * @license    http://mavenbird.com/Mavenbird-Module-License.txt
- */
+ */ 
 -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<body>
+    <referenceBlock name="product.info.details">
 
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <body>
-        <referenceBlock name="product.info.details">
-            <block name="file_attachment" class="Mavenbird\ProductAttachment\Block\Product\AttachmentsTab" template="Mavenbird_ProductAttachment::attachments.phtml" group="detailed_info"/>
-        </referenceBlock>
-    </body>
+    	<block class="Mavenbird\ProductAttachment\Block\Product\View\Attachment" name="product.attachment" as="attachment" template="Mavenbird_ProductAttachment::product/view/attachment.phtml" group="detailed_info" ifconfig="ProductAttachment/module/productattachment">
+            <arguments>
+                <argument translate="true" name="title" xsi:type="string">Attachment</argument>
+            </arguments>
+        </block>
+
+    </referenceBlock>
+</body>
 </page>

@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <!--
+/**
  * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
@@ -12,12 +13,12 @@
  * =================================================================
  *
  * @category   Mavenbird
- * @package    Mavenbird_ProductAttechment
+ * @package    Mavenbird_ProductAttachment
  * @author     Mavenbird Team
  * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
  * @license    http://mavenbird.com/Mavenbird-Module-License.txt
+ */ 
 -->
-
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
     <acl>
         <resources>
@@ -25,25 +26,23 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="Mavenbird_ProductAttachment::config" title="Mavenbird Product Attachments" sortOrder="161801" />
+                            <resource id="Mavenbird_ProductAttachment::configuration" title="Product Attachment Section" sortOrder="50">
+                            </resource>
                         </resource>
                     </resource>
                 </resource>
-                <resource id="Magento_Reports::report">
-                    <resource id="Mavenbird_ProductAttachment::reports" title="Mavenbird Product Attachments Reports" sortOrder="161801">
-                        <resource id="Mavenbird_ProductAttachment::downloads" title="Download Report" sortOrder="161801" />
-                    </resource>
-                </resource>
+                
                 <resource id="Magento_Catalog::catalog">
-                    <resource id="Mavenbird_ProductAttachment::attachment" title="Mavenbird Product Attachments" sortOrder="161801" >
-                        <resource id="Mavenbird_ProductAttachment::files_list" title="List Attachments" sortOrder="10" />
-                        <resource id="Mavenbird_ProductAttachment::icon" title="Icon Managment" sortOrder="20" />
-                        <resource id="Mavenbird_ProductAttachment::import" title="Mass File Import" sortOrder="30" />
-                        <resource id="Mavenbird_ProductAttachment::copy" title="Copy Attachment" sortOrder="40" />
-                        <resource id="Mavenbird_ProductAttachment::delete" title="Remove All Attachments" sortOrder="50" />
-                    </resource>
+                    <resource id="Mavenbird_ProductAttachment::productattachment" title="Product Attachment">
+                            <resource id="Mavenbird_ProductAttachment::manage_attachment" title="Manage Attachment" sortOrder="50" >
+                            	<resource id="Mavenbird_ProductAttachment::ProductAttachment" title="Manage Record" sortOrder="10" />
+                                <resource id="Mavenbird_ProductAttachment::save" title="Save Record" sortOrder="10" />
+                            </resource>
+                            
+                    
                 </resource>
-            </resource>
-        </resources>
+        	</resource>
+        </resource>
+		</resources>
     </acl>
 </config>

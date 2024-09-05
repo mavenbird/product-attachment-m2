@@ -1,0 +1,130 @@
+<?php
+/**
+ * Mavenbird Technologies Private Limited
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
+ *
+ * =================================================================
+ *
+ * @category   Mavenbird
+ * @package    Mavenbird_ProductAttachment
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
+ */ 
+
+$_product = $block->getProduct();
+$productId = $_product->getId();
+$attachCollection = $block->checkAttachAvailable($productId);
+if (count($attachCollection) > 0) {
+    $videoExist = false;
+    $iconExist = false;
+    $fileExist = false;
+    $urlExist = false;
+    foreach ($attachCollection as $attach) {
+        if (!empty($attach['video'])) {
+            $videoExist = true;
+        }
+        if (!empty($attach['icon'])) {
+            $iconExist = true;
+        }
+        if (!empty($attach['file'])) {
+            $fileExist = true;
+        }
+        if (!empty($attach['url'])) {
+            $urlExist = true;
+        }
+    }
+    ?>
+    <div class="tab-content">
+        <div class="downloads-links-block">
+            <div class="head">
+                <h4>Downloads Attachments</h4>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <th>No. </th>
+                <?php if ($iconExist) { ?>
+                    <th>Thumbnail </th>
+                <?php }if ($fileExist) { ?>
+                    <th>File </th>
+                <?php }
+                if ($videoExist) {
+                    ?>
+                    <th>Video </th>
+                <?php } if ($urlExist) {?>
+                    <th>Url</th>
+                <?php }?>
+                <th>Description </th>
+            </tr>
+            <?php $j = 1;
+            foreach ($attachCollection as $attach) { ?>
+                <tr>
+                    <?php
+                    
+                    $src = '';
+                    if (!empty($attach['icon'])) {
+                        $src = $block->getMediaUrl($attach['icon']);
+                    } else {
+                        $src=$block->getViewFileUrl('Mavenbird_ProductAttachment::images/default.jpeg');
+                    }
+                    ?>
+
+                    <td style="width: 46px;"><b><?= /* @noEscape */ $j++ . ") "; ?></b></td>
+                    <?php if ($iconExist) { ?>
+                    <td style="width: 86px;"> 
+                        <img 
+                        name="<?= /* @noEscape */ $attach['attach_id']; ?>" 
+                        height="25px" 
+                        width="51px" 
+                        src='<?= /* @noEscape */ $src; ?>' 
+                        />
+                    </td>
+                    <?php } if ($fileExist) {
+                        $filename = explode('/', $attach['file']);
+                        $filename = end($filename);
+                        ?>
+                        <td style="width: 86px;">
+                            <a 
+                            target="_blank" 
+                            href="<?= /* @noEscape */ $block->getMediaUrl($attach['file']); ?>"
+                            >
+                                <?= /* @noEscape */ $filename ?>
+                        </a>
+                        </td>
+                    <?php }
+                    if ($videoExist) {
+                        ?>
+                        <td style="width: 320px;">
+                        <?php
+                        $src = '';
+                        if (!empty($attach['video'])) {
+                            $src = $block->getMediaUrl($attach['video']); ?>
+                                <video width="300" height="240" controls>
+                                    <source src="<?= /* @noEscape */ $src; ?>">
+                                        Your browser does not support the video tag.
+                                </video>
+                            <?php } else {
+                                echo "---";
+                            }
+                            ?>
+                        </td>
+                    <?php }if ($urlExist) {?>
+                        <td style="width: 46px;">
+                            <a target="_blank" href="<?= /* @noEscape */ $attach['url']?> ">
+                                <?= /* @noEscape */ $attach['url'] ?>
+                            </a>
+                        </td>
+                    <?php }?>
+                    <td><?= /* @noEscape */ $attach['title']; ?></td>
+                </tr>
+            <?php } ?>
+        </table>
+    </div>
+<?php } ?>

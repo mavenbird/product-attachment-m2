@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mavenbird Technologies Private Limited
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
+ *
+ * =================================================================
+ *
+ * @category   Mavenbird
+ * @package    Mavenbird_ProductAttachment
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
+ */ 
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Mavenbird\ProductAttachment\Block\Adminhtml\Productattachment\EditForm" name="productattachment_productattachment_edit"/>
+        </referenceContainer>
+		
+        <referenceContainer name="left">
+            <block class="Mavenbird\ProductAttachment\Block\Adminhtml\Productattachment\Edit\Tabs" name="productattachment_productattachment_edit_tabs">
+
+                <block class="Mavenbird\ProductAttachment\Block\Adminhtml\Productattachment\Edit\Tabs\Main" name="productattachment_productattachment_edit_tabs_main"></block>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">productattachment_productattachment_edit_tabs_main</argument>
+                </action>
+				
+				<action method="addTab">
+                    <argument name="name" xsi:type="string">attachment_products</argument>
+                    <argument name="block" xsi:type="array">
+                        <item name="label" xsi:type="string">Attach Products</item>
+                        <item name="title" xsi:type="string">Attach Products</item>
+                        <item name="url" xsi:type="helper" helper="Mavenbird\ProductAttachment\Helper\Data::getProductsGridUrl"></item>
+                        <item name="class" xsi:type="string">ajax</item>
+                    </argument>
+                </action> 
+			</block>
+		</referenceContainer>
+    </body>
+</page>

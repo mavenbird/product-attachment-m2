@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mavenbird Technologies Private Limited
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
+ *
+ * =================================================================
+ *
+ * @category   Mavenbird
+ * @package    Mavenbird_ProductAttachment
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
+ */ 
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="product_attachment" resource="default" engine="innodb" comment="Mavenbird Product Attachment  Table">
+    <column xsi:type="int" name="attach_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Attach Id"/>
+    <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Attach Title"/>
+    <column xsi:type="varchar" name="icon" nullable="true" length="255" comment="Attach Icon"/>
+    <column xsi:type="varchar" name="file" nullable="false" length="255" comment="Attach File"/>
+    <column xsi:type="varchar" name="astatus" nullable="true" length="255" comment="Status"/>
+    <column xsi:type="int" name="sort_order" padding="11" unsigned="false" nullable="true" identity="false" comment="Sort Order"/>
+    <column xsi:type="varchar" name="product_id" nullable="true" length="255" comment="product Id"/>
+    <column xsi:type="varchar" name="video" nullable="true" length="255" comment="Attach Video"/>
+    <column xsi:type="varchar" name="customer_group" nullable="true" length="11" comment="Customer group ID"/>
+    <column xsi:type="varchar" name="url" nullable="true" length="255" comment="URL"/>
+    <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created attachment date time"/>
+    <column xsi:type="timestamp" name="updated_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Upated attachment date time"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="attach_id"/>
+    </constraint>
+    <index referenceId="PRODUCT_ATTACHMENT_TITLE_FILE_ASTATUS" indexType="fulltext">
+      <column name="title"/>
+      <column name="file"/>
+      <column name="astatus"/>
+    </index>
+  </table>
+  <table name="attach_product" resource="default" engine="innodb" comment="Mavenbird Product Attachment relation table">
+    <column xsi:type="int" name="attach_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Attach_id"/>
+    <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Magento Product Id"/>
+    <constraint xsi:type="foreign" referenceId="PRODUCT_ATTACHMENT_ATTACH_ID_ATTACH_PRODUCT_ATTACH_ID_PRODUCT" table="attach_product" column="attach_id" referenceTable="product_attachment" referenceColumn="attach_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="ATTACH_PRODUCT_ATTACH_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID" table="attach_product" column="product_id" referenceTable="catalog_product_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+  </table>
+  <table name="attachment_store" resource="default" engine="innodb" comment="attachment_store">
+    <column xsi:type="int" name="attach_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Attach Id"/>
+    <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="true" identity="false" comment="Attach Title"/>
+    <constraint xsi:type="foreign" referenceId="PRODUCT_ATTACHMENT_ATTACH_ID_ATTACHMENT_STORE_ATTACH_ID_STORE" table="attachment_store" column="attach_id" referenceTable="product_attachment" referenceColumn="attach_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="STORE_STORE_ID_ATTACHMENT_STORE_STORE_ID" table="attachment_store" column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+  </table>
+</schema>

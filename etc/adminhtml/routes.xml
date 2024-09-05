@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <!--
+/**
  * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
@@ -12,16 +13,16 @@
  * =================================================================
  *
  * @category   Mavenbird
- * @package    Mavenbird_ProductAttechment
+ * @package    Mavenbird_ProductAttachment
  * @author     Mavenbird Team
  * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
  * @license    http://mavenbird.com/Mavenbird-Module-License.txt
+ */ 
 -->
-
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="admin">
-        <route id="file" frontName="file">
-            <module name="Mavenbird_ProductAttachment" />
+        <route id="productattachment" frontName="productattachment">
+            <module name="Mavenbird_ProductAttachment" before="Magento_Backend" />
         </route>
     </router>
 </config>

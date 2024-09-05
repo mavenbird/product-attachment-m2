@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Mavenbird Technologies Private Limited
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
+ *
+ * =================================================================
+ *
+ * @category   Mavenbird
+ * @package    Mavenbird_ProductAttachment
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
+ */ 
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root" label="Root">        
+		<block class="Mavenbird\ProductAttachment\Block\Adminhtml\Productattachment\Edit\Tabs\ProductsTab" name="productattachment.edit.tab.productstab"/>
+        <block class="Magento\Backend\Block\Widget\Grid\Serializer" name="products_grid_serializer">
+            <arguments>
+                <argument name="grid_block" xsi:type="string">productattachment.edit.tab.productstab</argument>
+                <argument name="callback" xsi:type="string">getSelectedProducts</argument>
+                <argument name="input_element_name" xsi:type="string">products</argument>
+                <argument name="reload_param_name" xsi:type="string">attach_products</argument>
+            </arguments>
+        </block>
+    </container>
+</layout>

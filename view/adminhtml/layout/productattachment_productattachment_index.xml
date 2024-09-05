@@ -19,10 +19,11 @@
  * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */ 
 -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Mavenbird_ProductAttachment" setup_version="2.0.6" schema_version="2.0.6">
-    	<sequence>
-            <module name="Magento_Store"/>
-        </sequence>
-    </module>
-</config>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="styles"/>
+    <body>
+        <referenceContainer name="content">
+        	<uiComponent name="productattachment_productattachment_listing"/>
+        </referenceContainer>
+    </body>
+</page>

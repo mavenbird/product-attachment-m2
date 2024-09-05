@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 /**
  * Mavenbird Technologies Private Limited
@@ -19,10 +19,8 @@
  * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */ 
 -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Mavenbird_ProductAttachment" setup_version="2.0.6" schema_version="2.0.6">
-    	<sequence>
-            <module name="Magento_Store"/>
-        </sequence>
-    </module>
-</config>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root" label="Root">        
+		<block class="Mavenbird\ProductAttachment\Block\Adminhtml\Productattachment\Edit\Tabs\ProductsTab" name="productattachment.edit.tab.products"/>
+    </container>
+</layout>

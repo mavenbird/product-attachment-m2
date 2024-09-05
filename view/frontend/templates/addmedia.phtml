@@ -1,0 +1,36 @@
+<!--
+/**
+ * Mavenbird Technologies Private Limited
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
+ *
+ * =================================================================
+ *
+ * @category   Mavenbird
+ * @package    Mavenbird_ProductAttachment
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
+ */
+-->
+<div class="field review-field-nickname">
+                        <label for="file" class="label">
+                            <span><?= /* @noEscape */ __('Add a photo or video') ?></span>
+                        </label>
+                        <div class="control" id="control">
+                            <input 
+                            type="file" 
+                            name="image_video[0]" 
+                            id="img_video_field" 
+                            class="input-text"  
+                            accept="image/*, video/*" 
+                            >
+                            <button type="button" id="add" onclick="addField(this)"><span>+</span></button>
+                            <button type="button" id="del" onclick="delField()">x</button>
+                        </div>
+</div>

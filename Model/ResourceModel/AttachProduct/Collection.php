@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /**
  * Mavenbird Technologies Private Limited
  *
@@ -18,11 +17,31 @@
  * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
  * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */ 
--->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Mavenbird_ProductAttachment" setup_version="2.0.6" schema_version="2.0.6">
-    	<sequence>
-            <module name="Magento_Store"/>
-        </sequence>
-    </module>
-</config>
+
+namespace Mavenbird\ProductAttachment\Model\ResourceModel\AttachProduct;
+
+use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
+
+/**
+ * collection for Attach Product
+ */
+class Collection extends AbstractCollection
+{
+    /**
+     * @var string
+     */
+    public $_idFieldName = 'attach_id';
+
+    /**
+     * Define resource model
+     *
+     * @return void
+     */
+    protected function _construct()
+    {
+        $this->_init(
+            \Mavenbird\ProductAttachment\Model\AttachProduct::class,
+            \Mavenbird\ProductAttachment\Model\ResourceModel\AttachProduct::class
+        );
+    }
+}

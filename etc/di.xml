@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <!--
+/**
  * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
@@ -12,88 +13,45 @@
  * =================================================================
  *
  * @category   Mavenbird
- * @package    Mavenbird_ProductAttechment
+ * @package    Mavenbird_ProductAttachment
  * @author     Mavenbird Team
  * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
  * @license    http://mavenbird.com/Mavenbird-Module-License.txt
+ */ 
 -->
-
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Mavenbird\ProductAttachment\Api\IconRepositoryInterface" type="Mavenbird\ProductAttachment\Model\Icon\Repository"/>
-    <preference for="Mavenbird\ProductAttachment\Api\FileRepositoryInterface" type="Mavenbird\ProductAttachment\Model\File\Repository"/>
-    <preference for="Mavenbird\ProductAttachment\Model\File\FileScope\SaveFileScopeInterface" type="Mavenbird\ProductAttachment\Model\File\FileScope\SaveFileScope"/>
-    <preference for="Mavenbird\ProductAttachment\Model\File\FileScope\FileScopeDataProviderInterface" type="Mavenbird\ProductAttachment\Model\File\FileScope\FileScopeDataProvider"/>
-    <preference for="Mavenbird\ProductAttachment\Api\Data\FileInterface" type="Mavenbird\ProductAttachment\Model\File\File"/>
-
+ <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="file_icon_listing_data_source" xsi:type="string">Mavenbird\ProductAttachment\Model\Icon\ResourceModel\Grid</item>
-                <item name="file_import_listing_data_source" xsi:type="string">Mavenbird\ProductAttachment\Model\Import\ResourceModel\Grid</item>
-                <item name="file_file_listing_data_source" xsi:type="string">Mavenbird\ProductAttachment\Model\File\ResourceModel\Grid</item>
-                <item name="file_downloads_listing_data_source" xsi:type="string">Mavenbird\ProductAttachment\Model\Report\ResourceModel\Grid</item>
+                <item name="productattachment_productattachment_listing_data_source" xsi:type="string">Mavenbird\ProductAttachment\Model\ResourceModel\ProductAttachment\Grid\Collection</item>
             </argument>
         </arguments>
     </type>
-    <type name="Mavenbird\ProductAttachment\Model\File\FileScope\SaveFileScope">
+    <virtualType name="Mavenbird\ProductAttachment\Model\ResourceModel\ProductAttachment\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
-            <argument name="saveProcessors" xsi:type="array">
-                <item name="file" xsi:type="object">Mavenbird\ProductAttachment\Model\File\FileScope\SaveProcessors\File</item>
-                <item name="category" xsi:type="object">Mavenbird\ProductAttachment\Model\File\FileScope\SaveProcessors\Category</item>
-                <item name="product" xsi:type="object">Mavenbird\ProductAttachment\Model\File\FileScope\SaveProcessors\Product</item>
-                <item name="productCategories" xsi:type="object">Mavenbird\ProductAttachment\Model\File\FileScope\SaveProcessors\ProductCategories</item>
-            </argument>
+            <argument name="mainTable" xsi:type="string">product_attachment</argument>
+            <argument name="resourceModel" xsi:type="string">Mavenbird\ProductAttachment\Model\ResourceModel\ProductAttachment</argument>
         </arguments>
-    </type>
-    <type name="Mavenbird\ProductAttachment\Model\File\FileScope\FileScopeDataProvider">
+    </virtualType>
+    <virtualType name="ProductGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
         <arguments>
-            <argument name="dataProviders" xsi:type="array">
-                <item name="file" xsi:type="object">Mavenbird\ProductAttachment\Model\File\FileScope\DataProviders\File\Proxy</item>
-                <item name="category" xsi:type="object">Mavenbird\ProductAttachment\Model\File\FileScope\DataProviders\Category\Proxy</item>
-                <item name="product" xsi:type="object">Mavenbird\ProductAttachment\Model\File\FileScope\DataProviders\Product\Proxy</item>
-                <item name="productCategories" xsi:type="object">Mavenbird\ProductAttachment\Model\File\FileScope\DataProviders\ProductCategories\Proxy</item>
-                <item name="frontendFile" xsi:type="object">Mavenbird\ProductAttachment\Model\File\FileScope\DataProviders\Frontend\File\Proxy</item>
-                <item name="fileIds" xsi:type="object">Mavenbird\ProductAttachment\Model\File\FileScope\DataProviders\Frontend\FileIds\Proxy</item>
-                <item name="frontendCategory" xsi:type="object">Mavenbird\ProductAttachment\Model\File\FileScope\DataProviders\Frontend\Category\Proxy</item>
-                <item name="frontendProduct" xsi:type="object">Mavenbird\ProductAttachment\Model\File\FileScope\DataProviders\Frontend\Product\Proxy</item>
-                <item name="downloadFile" xsi:type="object">Mavenbird\ProductAttachment\Model\File\FileScope\DataProviders\Frontend\DownloadFile\Proxy</item>
-            </argument>
-        </arguments>
-    </type>
-
-    <virtualType name="Mavenbird\ProductAttachment\Model\FileSystem\ImageUploader" type="Magento\Catalog\Model\ImageUploader">
-        <arguments>
-            <argument name="baseTmpPath" xsi:type="const">Mavenbird\ProductAttachment\Model\Filesystem\Directory::AMFILE_DIRECTORY</argument>
-            <argument name="basePath" xsi:type="const">Mavenbird\ProductAttachment\Model\Filesystem\Directory::AMFILE_DIRECTORY</argument>
-            <argument name="allowedExtensions" xsi:type="array">
-                <item name="jpg" xsi:type="string">jpg</item>
-                <item name="png" xsi:type="string">png</item>
-                <item name="jpeg" xsi:type="string">jpeg</item>
-                <item name="bmp" xsi:type="string">bmp</item>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
             </argument>
         </arguments>
     </virtualType>
-    <type name="Mavenbird\ProductAttachment\Model\Filesystem\FileUploader">
+     
+     <virtualType name="ProductGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
         <arguments>
-            <argument name="imageUploader" xsi:type="object">Mavenbird\ProductAttachment\Model\FileSystem\ImageUploader</argument>
+            <argument name="collection" xsi:type="object" shared="false">Mavenbird\ProductAttachment\Model\ResourceModel\ProductAttachment\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">ProductGirdFilterPool</argument>
         </arguments>
+    </virtualType>
+    <type name="Mavenbird\ProductAttachment\Block\Product\View\Attachment">
+    <arguments>
+        <argument name="session" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
+    </arguments>
     </type>
 
-    <type name="Magento\Catalog\Block\Product\View\Description">
-        <plugin name="Mavenbird_ProductAttachment::ProductViewTabPosition" type="Mavenbird\ProductAttachment\Plugin\TabPosition" />
-    </type>
-
-    <type name="Mavenbird\ProductAttachment\Block\Product\AttachmentsTab">
-        <arguments>
-            <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
-        </arguments>
-    </type>
-
-    <!-- Proxies -->
-    <type name="Mavenbird\ProductAttachment\Model\File\Repository">
-        <arguments>
-            <argument name="iconResource" xsi:type="object">Mavenbird\ProductAttachment\Model\Icon\ResourceModel\Icon\Proxy</argument>
-        </arguments>
-    </type>
-    <!-- /Proxies -->
-</config>
+ </config>
