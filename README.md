@@ -34,7 +34,7 @@ This extension is compatible with Magento 2.4.X (PHP - 8.1 - 8.3) version.
 
 Easy installation process with step-by-step instructions provided for hassle-free setup.
 ~~~~~~~~~~~~~~~~~~~~~
-composer require mavenbird/module-product-attachment
+composer require mavenbird/module-productattachment
 php bin/magento setup:upgrade
 php bin/magento setup:static-content:deploy
 php bin/magento setup:di:compile
@@ -44,7 +44,7 @@ php bin/magento cache:flush
 ## Upgrade/Update Module:
 Run the following command in Magento 2 root folder for easy update -
 ~~~~~~~~~~~~~~~~~~~~~
-composer update mavenbird/module-product-attachment
+composer update mavenbird/module-productattachment
 php bin/magento setup:upgrade
 php bin/magento setup:static-content:deploy
 php bin/magento setup:di:compile

@@ -1,5 +1,5 @@
 {
-  "name": "mavenbird/module-product-attachment",
+  "name": "mavenbird/module-productattachment",
   "description": "Magento 2 module for attaching files and documents to products.",
   "require": {
     "php": ">=8.0.0"
