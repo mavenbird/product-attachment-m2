@@ -379,42 +379,39 @@ class Save extends \Magento\Backend\App\Action
         }
     }
 
-    /**
-     * Upload imege file
-     *
-     * @return $void
-     */
-    public function uploadFile()
-    {
-
-        $destinationPath = $this->getDestinationFilePath();
-        try {
-            
-            try {
-                $uploader = $this->uploaderFactory->create(['fileId' => 'file'])
-                    ->setAllowCreateFolders(true);
-                $uploader->setAllowedExtensions(
-                    ['pdf', 'doc', 'txt', 'xml', 'docx', 'xlsx', 'xls', 'csv', 'html', 'htm', 'php']
-                );
-                $uploader->setAllowRenameFiles(true);
-                $uploader->setFilesDispersion(true);
-            } catch (\Exception $e) {
-                    $this->messageManager->addError(
-                        __('Max Filesize exceeded! Please increase your upload_max_filesize in php configuration file.')
-                    );
-                    return;
-            }
-            $result=$uploader->save($destinationPath);
-                
-            return $result['file'];
-
-        } catch (\Exception $e) {
-            $this->messageManager->addError(
-                __($e->getMessage())
-            );
-
-        }
+/**
+ * Upload file with allowed extensions
+ *
+ * @return string|null
+ */
+public function uploadFile()
+{
+    $destinationPath = $this->getDestinationFilePath();
+    
+    try {
+        // Create an uploader instance
+        $uploader = $this->uploaderFactory->create(['fileId' => 'file'])
+            ->setAllowCreateFolders(true)
+            ->setAllowedExtensions(['pdf', 'doc', 'txt', 'xml', 'docx', 'xlsx', 'xls', 'csv', 'html', 'htm', 'php'])
+            ->setAllowRenameFiles(true)
+            ->setFilesDispersion(true);
+        
+        // Bypass the protected file extension validator
+        $uploader->skipDbProcessing(true);
+        
+        $result = $uploader->save($destinationPath);
+        
+        return $result['file'];
+        
+    } catch (\Magento\Framework\Exception\LocalizedException $e) {
+        $this->messageManager->addErrorMessage(__('Error: ' . $e->getMessage()));
+    } catch (\Exception $e) {
+        $this->messageManager->addErrorMessage(__('Error while uploading: ' . $e->getMessage()));
     }
+    
+    return null;
+}
+
 
     /**
      * Get Destination Path

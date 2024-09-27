@@ -53,5 +53,8 @@
         <argument name="session" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
     </arguments>
     </type>
+        <type name="Magento\MediaStorage\Model\File\Validator\NotProtectedExtension">
+        <plugin name="custom_allow_extensions_plugin" type="Mavenbird\ProductAttachment\Plugin\AllowExtensions"/>
+    </type>
 
  </config>

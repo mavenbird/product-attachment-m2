@@ -47,7 +47,9 @@ if (count($attachCollection) > 0) {
                 <h4>Downloads Attachments</h4>
             </div>
         </div>
-        <table>
+        <div class="table-wrapper">
+        <table class="table">
+            <thead>
             <tr>
                 <th>No. </th>
                 <?php if ($iconExist) { ?>
@@ -63,6 +65,7 @@ if (count($attachCollection) > 0) {
                 <?php }?>
                 <th>Description </th>
             </tr>
+            </thead>
             <?php $j = 1;
             foreach ($attachCollection as $attach) { ?>
                 <tr>
@@ -72,13 +75,13 @@ if (count($attachCollection) > 0) {
                     if (!empty($attach['icon'])) {
                         $src = $block->getMediaUrl($attach['icon']);
                     } else {
-                        $src=$block->getViewFileUrl('Mavenbird_ProductAttachment::images/default.jpeg');
+                        $src=$block->getViewFileUrl('Mavenbird_ProductAttachment::images/placeholder.jpg');
                     }
                     ?>
 
-                    <td style="width: 46px;"><b><?= /* @noEscape */ $j++ . ") "; ?></b></td>
+                    <td data-th="No." style="width: 46px;"><b><?= /* @noEscape */ $j++ . ") "; ?></b></td>
                     <?php if ($iconExist) { ?>
-                    <td style="width: 86px;"> 
+                    <td data-th="Thumbnail" style="width: 86px;"> 
                         <img 
                         name="<?= /* @noEscape */ $attach['attach_id']; ?>" 
                         height="25px" 
@@ -90,7 +93,7 @@ if (count($attachCollection) > 0) {
                         $filename = explode('/', $attach['file']);
                         $filename = end($filename);
                         ?>
-                        <td style="width: 86px;">
+                        <td data-th="File" style="width: 86px;">
                             <a 
                             target="_blank" 
                             href="<?= /* @noEscape */ $block->getMediaUrl($attach['file']); ?>"
@@ -101,12 +104,12 @@ if (count($attachCollection) > 0) {
                     <?php }
                     if ($videoExist) {
                         ?>
-                        <td style="width: 320px;">
+                        <td data-th="Video" style="width: 180px;">
                         <?php
                         $src = '';
                         if (!empty($attach['video'])) {
                             $src = $block->getMediaUrl($attach['video']); ?>
-                                <video width="300" height="240" controls>
+                                <video width="150" height="100" controls>
                                     <source src="<?= /* @noEscape */ $src; ?>">
                                         Your browser does not support the video tag.
                                 </video>
@@ -122,9 +125,10 @@ if (count($attachCollection) > 0) {
                             </a>
                         </td>
                     <?php }?>
-                    <td><?= /* @noEscape */ $attach['title']; ?></td>
+                    <td data-th="Description"><?= /* @noEscape */ $attach['title']; ?></td>
                 </tr>
             <?php } ?>
         </table>
+    </div>
     </div>
 <?php } ?>
